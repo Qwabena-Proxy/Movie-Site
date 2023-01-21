@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ProxyMovies.net</title>
+        <link rel="stylesheet" href="{% static 'css/login.css' %}" type="text/css" media="all" />
+
+        <style>
+            .alert{
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>SignUp!</h2>
+        {% for message in messages %}
+        <h5 class="alert">{{message}}</h5>
+        {% endfor %}
+        <form method="POST" action="signup">
+            {% csrf_token %}
+            <p>Username</p>
+            <input type="text" name="username" required="true">
+            <p>Email</p>
+            <input type="email" name="email" required="true" placeholder="abc@email.com">
+            <p>Password</p>
+            <input type="password" name="password" required="true">
+            <p>Confirm password</p>
+            <input type="password" name="password2" required="true"><br>
+            <input type="submit">
+            <p>Already have an account <a href="login" style="color: blue;"<u>login.</u></a></p>
+
+        </form>
+    </body>
+</html>
